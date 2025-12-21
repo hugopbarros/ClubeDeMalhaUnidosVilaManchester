@@ -1,0 +1,218 @@
+/* ------------------------------------------------------------------- */
+/* 1. VARIÁVEIS GLOBAIS (DEFINIÇÕES) */
+/* ------------------------------------------------------------------- */
+:root {
+    /* **CRÍTICO:** Altura do Header aumentada para 120px para acomodar o h1 maior */
+    --header-height: 120px; 
+    
+    /* Cores que você definiu */
+    --cor-primaria: #cce0f8;
+    --cor-secundaria: #2ecc71;
+    --cor-fundo: #caf0d0;
+    --cor-texto: #93ee8f;
+    --cor-action: #d2e299; 
+    --cor-h1: #347e71;
+    --cor-bg-body: #d2e299;
+    
+    /* Mapeamento de variáveis para o layout fixo */
+    --color-header-bg: var(--cor-action); 
+    --color-primary: var(--cor-secundaria); 
+}
+
+/* ------------------------------------------------------------------- */
+/* 2. RESET GERAL */
+/* ------------------------------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ------------------------------------------------------------------- */
+/* 3. HEADER FIXO (H1 ABAIXO DA NAV - FLEXBOX EM COLUNA) */
+/* ------------------------------------------------------------------- */
+header {
+    /* Fixação no topo */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height); 
+    
+    /* Flexbox: Coluna para empilhar NAV e H1 */
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center;     
+    
+    /* Prioridade de exibição */
+    background-color: var(--color-header-bg); 
+    z-index: 99999;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 0; 
+}
+
+/* ------------------------------------------------------------------- */
+/* 4. ESTILOS DE NAVEGAÇÃO E H1 (AJUSTADOS) */
+/* ------------------------------------------------------------------- */
+
+/* Estilo do H1 (MAIOR) */
+header h1 {
+    font-size: 4rem; 
+    color: var(--cor-h1);
+    margin: 0;
+    padding: 5px 0 0 0; 
+    line-height: 1.2; 
+    text-align: center;
+}
+
+/* Ajusta a navegação para ocupar a largura total e centralizar */
+.header-nav {
+    height: auto; 
+    width: 100%; 
+    text-align: center;
+}
+
+.header-nav ul {
+    display: flex;
+    /* Distribui os itens uniformemente na largura total */
+    justify-content: space-evenly; 
+    
+    list-style: none;
+    padding: 10px 0; 
+    margin: 0;
+    height: auto; 
+    align-items: center; 
+    width: 100%; 
+}
+
+.header-nav ul li a {
+    display: block;
+    padding: 5px 10px; 
+    color: var(--cor-h1);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.header-nav ul li a:hover {
+    color: var(--color-primary);
+}
+
+
+/* ------------------------------------------------------------------- */
+/* 5. BACKGROUND FIXO (Não Rola) */
+/* ------------------------------------------------------------------- */
+.background-fixo {
+    /* Fixação e posicionamento abaixo do Header */
+    position: fixed; 
+    top: var(--header-height); 
+    left: 0;
+    width: 100%;
+    /* Altura restante da viewport */
+    height: calc(100vh - var(--header-height)); 
+    z-index: -1; 
+    
+    /* Imagem e filtro de contraste */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/Fotos/Logo federação.jpeg');
+    background-size: contain; 
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+/* ------------------------------------------------------------------- */
+/* 6. BODY (CRÍTICO: Empurra o Conteúdo para Baixo) */
+/* ------------------------------------------------------------------- */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    
+    /* Espaço reservado para o header fixo (120px) */
+    padding-top: var(--header-height); 
+    padding: 10rem; 
+    
+    background-color: var(--cor-bg-body);
+}
+
+/* ------------------------------------------------------------------- */
+/* 7. ESTILOS DE GALERIA E MODAL (Tamanho da Foto Aprovado) */
+/* ------------------------------------------------------------------- */
+
+/* Estilos de Conteúdo Principal (Sugestão: para ver o fundo fixo) */
+.conteudo-principal {
+    background-color: transparent; 
+    /* Adicione outros estilos de padding/margin se precisar aqui */
+}
+
+.galeria-fotos {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 15px;
+    justify-content: center;
+    padding: 20px;
+}
+.miniatura img {
+    /* Tamanho de foto aprovado */
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    cursor: pointer;
+    border: 3px solid transparent;
+    transition: border 0.3s;
+    display: block;
+}
+
+.miniatura img:hover {
+    border-color: #347e71;
+}
+
+/* Estilos de Modal (Lightbox) */
+.modal-lightbox {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); 
+    display: none; 
+    z-index: 100000; 
+}
+
+.modal-lightbox:target {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-lightbox img {
+    max-width: 100%;
+    max-height: 100%;
+    border: 2px solid white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    object-fit: contain;
+}
+
+.fechar-lightbox {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    line-height: 1;
+    z-index: 100001; 
+    transition: color 0.3s;
+}
+
+.fechar-lightbox:hover {
+    color: #ff5733;
+}
+footer {
+    color: var(--cor-h1);
+    padding: 20px 0;
+    text-align: center;
+    position: relative;
+    /* Compensa o padding do body */
+    left: calc(-1 * var(--body-padding-horizontal)); 
+    width: calc(100% + (2 * var(--body-padding-horizontal)));
+}

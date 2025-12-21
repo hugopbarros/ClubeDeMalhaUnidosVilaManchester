@@ -1,0 +1,171 @@
+/* ------------------------------------------------------------------- */
+/* 1. VARIÁVEIS GLOBAIS (DEFINIÇÕES) */
+/* ------------------------------------------------------------------- */
+:root {
+  /* **AJUSTE AQUI:** Defina a altura exata do seu header. EX: 80px, 90px, etc. */
+  --header-height: 80px; 
+  /* Cor sólida de fundo do header (escura) */
+  --color-header-bg: #331F19; 
+  /* Cor primária (o verde/ciberpunk) */
+  --color-primary: #14ec87; 
+}
+
+
+/* ------------------------------------------------------------------- */
+/* 2. RESET E BOX-SIZING */
+/* ------------------------------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ------------------------------------------------------------------- */
+/* 3. HEADER FIXO (Cor Sólida e Navegação Espaçada) */
+/* ------------------------------------------------------------------- */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* Cor Sólida OPACO: Impede que o BODY seja visto rolando por trás */
+    background-color: var(--color-header-bg); 
+    z-index: 99999;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    height: var(--header-height);
+}
+
+.header-nav ul {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    list-style: none;
+    padding: 0 5%;
+    margin: 0;
+    height: var(--header-height);
+    width: 100%;
+}
+
+/* Ajuste para espaçamento vertical maior nas teclas nav (links) */
+.header-nav ul li a {
+    display: block;
+    /* Aumenta o padding vertical para a área clicável */
+    padding: 15px 10px; 
+    color: burlywood;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.header-nav ul li a:hover {
+    color: var(--color-primary);
+}
+
+
+/* ------------------------------------------------------------------- */
+/* 4. BACKGROUND FIXO (NOVO ELEMENTO NO HTML - NÃO ROLA) */
+/* ------------------------------------------------------------------- */
+.background-fixo {
+    position: fixed; 
+    top: var(--header-height); /* Começa exatamente abaixo do header */
+    left: 0;
+    width: 100%;
+    /* Altura que cobre o resto da viewport, para a imagem ficar fixa */
+    height: calc(100vh - var(--header-height)); 
+    z-index: -1; 
+    
+    /* Configuração da Imagem de Fundo */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/Fotos/Logo federação.jpeg');
+    background-size: contain; 
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+/* ------------------------------------------------------------------- */
+/* 5. BODY (Ajustado para o Header Fixo e Fundo Transparente) */
+/* ------------------------------------------------------------------- */
+body {
+    /* CRÍTICO: Empurra o conteúdo para baixo do header fixo */
+    padding-top: var(--header-height); 
+    
+    /* Paddings laterais/inferiores */
+    padding-left: 5%; 
+    padding-right: 5%; 
+    padding-bottom: 5%; 
+    
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Cabin", sans-serif;
+    font-weight: 400;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    /* O fundo deve ser transparente para mostrar a div.background-fixo */
+    background-color: transparent; 
+    
+    color: burlywood;
+    overflow-x: hidden;
+    /* As propriedades background-image, size, repeat, etc., foram movidas para .background-fixo */
+}
+
+/* ------------------------------------------------------------------- */
+/* 6. CONTEÚDO PRINCIPAL (Ajustado para Transparência) */
+/* ------------------------------------------------------------------- */
+.conteudo-principal {
+    width: 100%;
+    max-width: auto;
+    margin: 0.1rem;
+    padding: 5rem 5rem;
+    color: white;
+    font-family: sans-serif;
+    line-height: 1;
+    
+    /* Fundo semi-transparente para o texto, mas que permite ver a imagem fixa */
+    background-color: transparent; 
+    
+    border-radius: 8px;
+}
+
+/* ------------------------------------------------------------------- */
+/* 7. ESTILOS DIVERSOS */
+/* ------------------------------------------------------------------- */
+h1 {
+    font-size: 3em;
+    color: var(--color-primary);
+    text-align: center;
+    line-height: 2;
+    margin-bottom: 5px;
+}
+h2{
+   color: var(--color-primary);
+   font-size: 1.8rem;
+   margin-bottom: 20px;
+}
+
+.federação{
+    text-align: left;
+    color: #F4F0EA;
+    font-size: 0.9rem;
+}
+.federação a{
+    color: var(--color-primary);
+    text-decoration: none;
+}
+input[type="radio"], input[type="checkbox"]{
+    accent-color: var(--color-primary);
+}
+input[type="text"],input[type="email"],input[type="date"],input[type="password"]{
+    width: 50%;
+    color: #331F19;
+    border: 2px solid #CCD595;
+    outline: none;
+    padding: 0.6rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #CCD595;
+}
+input::placeholder{
+    color: #331F19;
+}
