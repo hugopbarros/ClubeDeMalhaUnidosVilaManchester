@@ -74,7 +74,7 @@ header {
     z-index: -1; 
     
     /* Configuração da Imagem de Fundo */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("LogoFederacao.jpeg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../LogoFederacao.jpeg");
     background-size: contain; 
     background-repeat: no-repeat;
     background-position: center center;
