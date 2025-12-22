@@ -35,7 +35,7 @@
 header {
     /* Fixação no topo */
     position: fixed;
-    top: 0;
+    top: 4rem;
     left: 0;
     width: 100%;
     height: var(--header-height); 
