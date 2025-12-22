@@ -2,7 +2,7 @@
 // Apenas altere este Array para adicionar ou remover fotos.
 // VARIÁVEIS DE CAMINHO DEFINIDAS AQUI! 📸
 // ****************************************
-const CAMINHO_BASE_FOTOS = "../Fotos/Grid3/";
+const CAMINHO_BASE_FOTOS = "/Grid3/";
 const CAMINHO_MINIATURAS = CAMINHO_BASE_FOTOS + "miniaturas/";
 const CAMINHO_GRANDES = CAMINHO_BASE_FOTOS + "grandes/";
 // ****************************************
