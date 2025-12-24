@@ -23,21 +23,7 @@ const dadosDasFotos = [
     { id: 'foto12', alt: 'Detalhe da Natureza', nomeArquivo: 'foto12' },
     { id: 'foto13', alt: 'Retrato Antigo', nomeArquivo: 'foto13' },
     { id: 'foto14', alt: 'Arquitetura Moderna', nomeArquivo: 'foto14' },
-    { id: 'foto15', alt: 'Pôr do Sol', nomeArquivo: 'foto15' },
-    { id: 'foto16', alt: 'Paisagem Urbana',nomeArquivo: 'foto16' },
-    { id: 'foto17', alt: 'Detalhe da Natureza', nomeArquivo: 'foto17' },
-    { id: 'foto18', alt: 'Retrato Antigo', nomeArquivo: 'foto18' },
-    { id: 'foto19', alt: 'Arquitetura Moderna', nomeArquivo: 'foto19' },
-    { id: 'foto20', alt: 'Pôr do Sol', nomeArquivo: 'foto20' },
-    { id: 'foto21', alt: 'Paisagem Urbana',nomeArquivo: 'foto21' },
-    { id: 'foto22', alt: 'Detalhe da Natureza', nomeArquivo: 'foto22' },
-    { id: 'foto23', alt: 'Retrato Antigo', nomeArquivo: 'foto23' },
-    { id: 'foto24', alt: 'Arquitetura Moderna', nomeArquivo: 'foto24' },
-    { id: 'foto25', alt: 'Pôr do Sol', nomeArquivo: 'foto25' },
-    { id: 'foto26', alt: 'Paisagem Urbana',nomeArquivo: 'foto26' },
-    { id: 'foto27', alt: 'Detalhe da Natureza', nomeArquivo: 'foto27' },
-    // Adicione mais fotos aqui...
-];
+    ];
 
 // Referências aos contêineres HTML
 const galeriaContainer = document.getElementById('galeria-miniaturas');
@@ -52,7 +38,7 @@ dadosDasFotos.forEach(foto => {
     // 1. Gerando o HTML da Miniatura
     htmlMiniaturas += `
         <a href="#${foto.id}" class="miniatura">
-            <img src="${CAMINHO_MINIATURAS}${foto.nomeArquivo}_mini.jpg" alt="${foto.alt}">
+            <img src="${CAMINHO_MINIATURAS}${foto.nomeArquivo}_mini.jpeg" alt="${foto.alt}">
         </a>
     `;
 
@@ -60,7 +46,7 @@ dadosDasFotos.forEach(foto => {
     htmlModais += `
         <div id="${foto.id}" class="modal-lightbox">
             <a href="#" class="fechar-lightbox" aria-label="Fechar">&times;</a>
-            <img src="${CAMINHO_GRANDES}${foto.nomeArquivo}_grande.jpg" alt="${foto.alt}">
+            <img src="${CAMINHO_GRANDES}${foto.nomeArquivo}_grande.jpeg" alt="${foto.alt}">
         </div>
     `;
 });
